@@ -143,6 +143,9 @@
     .laparet__info {
         padding: 40px 0 40px 15px;
     }
+    .main-title__item:last-child {
+        flex: initial;
+    }
 }
 
 @media screen and (max-width: 1023px){
@@ -531,6 +534,15 @@
         font-size: 18px;
         letter-spacing: 5px;
     }
+    .laparet__txt {
+        max-width: 100%;
+    }
+    .laparet__img,
+    .laparet__info{
+        transform: none!important;
+    }
+
+
 }
 
 @media screen and (max-width: 650px){
@@ -838,6 +850,9 @@
     }
     .main-collections-view .slick-list{
         margin: 0 -7px;
+    }
+    .inspiration__img img{
+        max-height: 250px;
     }
 }
 

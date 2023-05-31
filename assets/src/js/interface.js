@@ -214,7 +214,7 @@ $(document).ready(function() {
 					}
 			  	},
 				  {
-					breakpoint: 600,
+					breakpoint: 500,
 					settings: {
 						slidesToShow: 1,
 						slidesToScroll: 1,
@@ -228,6 +228,23 @@ $(document).ready(function() {
 
 	if($('.m-index').length>0){
 		gsap.registerPlugin(ScrollTrigger);
+
+		gsap.to(".laparet__img", {
+			yPercent: -20,
+			ease: "none",
+			scrollTrigger: {
+			  	trigger: '.laparet',
+			  	scrub: true
+			}, 
+		});
+		gsap.to(".laparet__info", {
+			yPercent: 20,
+			ease: "none",
+			scrollTrigger: {
+			  	trigger: '.laparet',
+			  	scrub: true
+			}, 
+		});
 
 		//console.log($('.inspiration__line').innerWidth());
 
@@ -259,6 +276,25 @@ $(document).ready(function() {
 
 		// const thisAnimWrap = document.querySelector('.inspiration__wrap');
 		//console.log($(".inspiration__wrap").outerHeight());
+
+		//collections
+		var tlCollections = gsap.timeline({
+			scrollTrigger: {
+				trigger: ".main-collections",
+				start: "top 50%",
+				// toggleActions: "restart none none reset",
+			}
+		})
+		tlCollections.from(".main-collections-view__item", {
+			y: 30,
+			autoAlpha: 0,
+			ease: Power4.out,
+			delay: -0.9,
+			//skewY: 7,
+			stagger: .2,
+		})
+
+
 		var tl1 = gsap.timeline({
 			// duration: -5,
 			scrollTrigger: {
@@ -269,9 +305,8 @@ $(document).ready(function() {
 				end: 'bottom',
 			  	pin: true,
     			scrub: 3,
-				//markers:true,
-				//scrub: 5
-				anticipatePin: 1,
+	
+				anticipatePin: 0,
 			}
 		});
 
@@ -282,8 +317,8 @@ $(document).ready(function() {
 			y: '-=600',
 			xPercent: -55,
 			ease: "none",
-			duration: 100,
-			anticipatePin: 1,
+			duration: 1000,
+	
 		});
 		tl1.from(".inspiration .see-all-link", {
 			y:50,
@@ -309,29 +344,3 @@ $(function() {
 });
 
 
-// gsap.registerPlugin(ScrollTrigger);
-
-// window.addEventListener("DOMContentLoaded", (event) => {
-// 	var tlPreview = gsap.timeline({});
-
-
-//     const p_slogan = document.querySelector('h1'),
-//         p_sloganLetters = p_slogan.innerHTML.split('');
-//     p_slogan.innerHTML = "";
-// 	const p_spanArray = p_sloganLetters.map(
-//         letter => {
-//             const item = document.createElement('span');
-//             item.classList.add('p_slogan_letter');
-//             item.innerHTML = letter;
-//             p_slogan.appendChild(item);
-//         }
-//     );
-	
-
-// 	tlPreview.from(".p_slogan_letter", {
-//         duration: 0.1,
-//         y: -30,
-//         opacity: 0,
-//         stagger: .03,
-//     });
-// });
